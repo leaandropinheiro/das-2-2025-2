@@ -2,12 +2,11 @@
 
 [AWS Canvas](#)
 
-## Aula 30/07
-## AWS
+# Aula 30/07
+### AWS
 
 A AWS surgiu por volta dos anos 2000, quando a Amazon, então uma loja de livros online, enfrentava dificuldades para lidar com a crescente demanda por seus serviços. Em apenas seis anos, a empresa percebeu que precisava desenvolver sua própria infraestrutura tecnológica para suportar esse crescimento. Foi nesse contexto que surgiu a ideia de transformar essa infraestrutura em um serviço comercializável.
 
-O pensamento de Jeff Bezos foi simples e estratégico:  
 **"Se temos data centers ociosos, por que não oferecê-los como serviço para outras empresas?"**
 
 ### Role of a Cloud Architect
@@ -35,6 +34,13 @@ O pensamento de Jeff Bezos foi simples e estratégico:
 - Boas práticas com credenciais
 - Atenção a phishing e e-mails maliciosos
 - Monitoramento e controle de acesso (IAM)
+- ### Autenticação e Autorização
+- Autenticação: confirma a identidade do usuário.
+  - Ex: login e senha (o que você sabe)
+  - MFA (o que você tem)
+  - Biometria(o que você é)
+- Autorização: define o que o usuário pode fazer após autenticado.
+  - Ex: permissões atribuidas via IAM User ou Role
 
 ### Reliability Pillar
 - Confiabilidade garante que o sistema continue funcionando mesmo diante de falhas.
@@ -46,7 +52,7 @@ O pensamento de Jeff Bezos foi simples e estratégico:
   
 ### Recover Quickly
 - Capacidade de restaurar o sistema rapidamente após falhas. Isso exige planejamento de recuperação, testes frequentes e monitoramento contínuo.
-- 
+
 ### Dynamically Meet Compute Demand
 - A infraestrutura precisa escalar de forma automática de acordo com a demanda (como em dias de pico).
 Ex: Usar Auto Scaling para lidar com tráfego inesperado.
@@ -128,5 +134,46 @@ Permitir que a aplicação escale automaticamente com base na demanda.
 - IAM bem configurado
 - MFA em todas as contas
 - Monitoramento com CloudTrail, GuardDuty, etc.
-
 - Segurança em várias camadas (firewalls, VPC, WAF)
+
+# Aula 06/08
+### Modelo de responsabilidade compartilhada
+A AWS segue o modelo de responsabilidade compartilhada, onde a segurança é dividida entre a AWS e o cliente:
+
+- AWS: protege a infraestrutura (hardware, rede, data centers).
+- Cliente: gerencia dados, permissões, aplicativos e configuração de serviços.
+Isso significa que você não depende apenas da AWS; precisa também cuidar de como utiliza os recursos.
+
+### Princípio do privilégio mínimo
+Esse princípio diz que cada usuário ou serviço deve ter apenas as permissões necessárias para executar suas tarefas. Menos permissões = menos risco de falhas ou ataques.
+
+### Autenticação e Autorização
+
+- Autenticação: confirma quem você é (ex.: login com senha, MFA).
+- Autorização: determina o que você pode fazer após ser autenticado.
+
+### IAM User e IAM Role
+- IAM User: identidade individual dentro da AWS, associada a credenciais e permissões específicas.
+- IAM Role: conjunto de permissões que pode ser assumido por usuários, serviços ou recursos temporariamente. Roles são úteis para automações e aplicações que precisam acessar serviços sem usar credenciais fixas.
+
+# Aula 13/08
+### Identity Based Policies
+São políticas aplicadas a usuários, grupos ou roles da AWS. Elas definem o que aquele usuário ou serviço pode ou não fazer dentro da conta. Por exemplo, um usuário de leitura pode acessar arquivos S3, mas não alterar ou deletar.
+
+Resource Based Policies
+São políticas aplicadas diretamente a recursos da AWS, como buckets do S3 ou filas do SQS. Elas definem quem (qual usuário ou serviço) tem acesso ao recurso e quais ações podem ser realizadas, independente de políticas atribuídas ao usuário.
+
+# Aula 20/08
+### Block Storage
+Armazenamento em blocos divide os dados em unidades fixas chamadas “blocos”, que podem ser gerenciados individualmente. Muito usado em sistemas operacionais, bancos de dados e aplicações que precisam de desempenho e baixa latência, como volumes do EBS (Elastic Block Store).
+
+### File Share
+Armazenamento baseado em arquivos permite que múltiplos usuários acessem arquivos e pastas de forma compartilhada, similar a um servidor de arquivos local. Ex.: EFS (Elastic File System) da AWS.
+
+### Object Store
+Armazenamento baseado em objetos trata cada arquivo como um objeto independente, com metadados e um identificador único. Ideal para grandes volumes de dados não estruturados, como fotos, vídeos e backups. Ex.: Amazon S3.
+
+### S3 – Resumo Geral
+O Amazon S3 é o serviço de Object Storage mais popular da AWS. Ele oferece alta durabilidade, escalabilidade e acesso seguro a qualquer quantidade de dados, permitindo integração com outros serviços da AWS e oferecendo recursos como versionamento, replicação e controle de acesso.
+
+
