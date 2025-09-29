@@ -176,4 +176,74 @@ Armazenamento baseado em objetos trata cada arquivo como um objeto independente,
 ### S3 – Resumo Geral
 O Amazon S3 é o serviço de Object Storage mais popular da AWS. Ele oferece alta durabilidade, escalabilidade e acesso seguro a qualquer quantidade de dados, permitindo integração com outros serviços da AWS e oferecendo recursos como versionamento, replicação e controle de acesso.
 
+# Aula 03/09
+- Serviços computacionais da AWS (EC2)
+  - O Amazon EC2 (Elastic Compute Cloud) é o serviço da AWS que permite criar e gerenciar máquinas virtuais na nuvem. Ele dá flexibilidade para escolher sistema operacional, CPU, memória e rede, de acordo com a necessidade da aplicação.
+
+- Amazon Machine Images (AMI)
+  - Imagens de sistemas operacionais (como Linux, Windows) ou imagens personalizadas que podem incluir softwares, bibliotecas e configurações.
+
+- Tipos de Instâncias
+  - As instâncias do EC2 são classificadas em diferentes tipos, otimizados para casos de uso específicos. General Purpose (uso geral), Compute Optimized (processamento), Memory Optimized (memória) e Storage Optimized.
+
+- Tipos de Storage (EBS/Instance Store)
+  - EBS (Elastic Block Store)
+    - armazenamento persistente, ou seja, os dados continuam existindo mesmo após desligar a instância. Funciona como um HD/SSD conectado via rede.
+
+  - Instance Store
+    - armazenamento temporário direto no hardware físico. Rápido, mas os dados são perdidos ao parar ou reiniciar a instância.
+
+- Acesso via SSH
+  - O acesso a instâncias Linux na AWS é feito via SSH, que garante conexão segura através de chaves criptográficas.
+
+# Aula 10/09
+- Tipos de Storage (EBS/Instance Store)
+  - EBS
+    - Persistente e flexível.
+  - Instance Store
+    - Rápido, mas temporário.
+
+- Elastic File System (EFS) / FSx
+  - EFS (Elastic File System)
+    - Sistema de arquivos escalável e gerenciado, acessível por várias instâncias EC2 ao mesmo tempo.
+  - FSx
+    - Serviço de file system especializado, como FSx for Windows File Server.
+
+- EC2 Windows
+  - Além de Linux, o EC2 também suporta instâncias com Windows Server.
+
+# Aula 17/09
+  - EC2:
+    - User Data
+      - Permite rodar scripts, instalar pacotes e configurar apps, na inicialização da instancia.
+
+    - Instance Metadata
+      - Informações internas da instância
+
+    - Placement
+      - Define onde a instância será executada fisicamente (região, zona de disponibilidade ou placement groups para baixa latência).
+
+  - VPC
+    - O que é uma VPC?
+      - Uma VPC é uma rede virtual privada dentro da AWS, onde você controla endereçamento IP, sub-redes, rotas e segurança.
+
+    - Subnets Públicas e Privadas
+      - Publica
+        - Acessível pela internet.
+      - Privada
+        - Isolada, acessada apenas internamente ou via VPN.
+
+    - Security Group e NACL
+      - Security Group
+        - Firewall em nível de instância (controla portas e protocolos).
+      - NACL (Network ACL)
+        - Firewall em nível de subnet, com regras de entrada e saída.
+
+    - VPN Site-to-Site
+      - Conexão segura entre a rede local da empresa (on-premises) e a VPC na AWS, funcionando como se estivessem na mesma rede.
+
+    - Peering
+      - Conexão entre duas VPCs diferentes, permitindo comunicação direta entre instâncias de ambas.
+
+
 
